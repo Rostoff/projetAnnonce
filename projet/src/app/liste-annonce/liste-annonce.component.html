@@ -1,4 +1,9 @@
 <p>Liste</p>
-<ul>
-  <li *ngFor="let annonce of annonces">{{ annonce.title }}</li>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let annonce of annonces">
+    <h2>{{ annonce.title }}</h2>
+    <p>Proposé par : <i>{{ annonce.customerName }}</i> à {{annonce.localisation}}</p>
+    <p>Annonce : {{ annonce.content }}</p>
+    <h3>Prix: {{annonce.price }} €</h3>
+  </li>
 </ul>
