@@ -9,4 +9,5 @@ export class Annonce {
     localisation: string; //dans une V2, localisation par adresse
     date: string; //Dans un V2, utiliser Moment.js
     price: number;
+    details: boolean;
 }

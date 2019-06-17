@@ -17,4 +17,13 @@ export class ListeAnnonceComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClick(i: number) {
+    if(this.annonces[i].details == true){
+      this.annonces[i].details = false;
+    }
+    else {
+      this.annonces[i].details = true;
+    }
+
+  }
 }

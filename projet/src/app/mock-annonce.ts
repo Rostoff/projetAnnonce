@@ -11,7 +11,8 @@ export const AnnonceList: Annonce[] = [
         content: 'C\'est génial',
         localisation: 'Paris',
         date: '17 juin 2019',
-        price: 1500
+        price: 1500,
+        details: false
     },
     {
         id: 2,
@@ -21,7 +22,8 @@ export const AnnonceList: Annonce[] = [
         content: 'ça rafraichi',
         localisation: 'Paris',
         date: '15 juin 2019',
-        price: 100
+        price: 100,
+        details : false
     }
 
 ]

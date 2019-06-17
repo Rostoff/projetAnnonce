@@ -1,6 +1,6 @@
 <p>Liste</p>
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let annonce of annonces">
+  <li class="list-group-item" *ngFor="let annonce of annonces, let i = index">
     <div class="row">
         <div class="col-8">
           <h2>{{ annonce.title }}</h2>
@@ -17,10 +17,14 @@
         </div>
         
         <div class="col-1">
-          <button type="button" class="btn btn-primary btn-lg">
+          <button type="button" class="btn btn-primary btn-lg" (click)="onClick(i)">
             <span class="glyphicon glyphicon-eye-open"> Voir </span>
           </button>
         </div>
+    </div>
+    <div *ngIf="annonce.details === true">
+        Details
+
     </div>
   </li>
 </ul>
