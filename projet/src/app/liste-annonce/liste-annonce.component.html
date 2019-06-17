@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-8">
           <h2>{{ annonce.title }}</h2>
-          <p>Proposé par : <i>{{ annonce.customerName }}</i> à {{annonce.localisation}}</p>
+          <p>Proposé par : <i>{{ annonce.customer.customerName }}</i> à {{annonce.localisation}}</p>
             <div class="col">
               <p>Annonce : {{ annonce.content }}</p>
             </div>
@@ -23,7 +23,8 @@
         </div>
     </div>
     <div *ngIf="annonce.details === true">
-        Details
+        Email : {{ annonce.customer.customerEmail }}
+        Téléphone : {{ annonce.customer.customerPhone }}
 
     </div>
   </li>

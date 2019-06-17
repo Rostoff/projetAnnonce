@@ -1,9 +1,11 @@
 import { Moment } from 'moment';
+import { Customers } from './customers';
 
 export class Annonce {
     id: number;
     title: string;
-    customerName: string;
+    //customerName: string; 
+    customer: Customers;
     image?: string;
     content: string;
     localisation: string; //dans une V2, localisation par adresse
