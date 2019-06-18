@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DetailAnnonceComponent } from './detail-annonce/detail-annonce.component';
 import { ListeAnnonceComponent } from './liste-annonce/liste-annonce.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DetailAnnonceComponent,
-    ListeAnnonceComponent
+    ListeAnnonceComponent,
+    LoginPageComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

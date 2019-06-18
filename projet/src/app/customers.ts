@@ -4,4 +4,5 @@ export class Customers {
     customerEmail: string;
     customerPhone: string;
     dateCreation: string;
+    auth: boolean;
 }

@@ -1,4 +1,12 @@
 <p>Liste</p>
+
+<!-- <div *ngIf="annonce.customer.auth === false"> -->
+  <i><a routerLink="/login" routerLinkActive="active">Log in</a></i>
+<!-- </div>
+<div *ngIf="annonce.customer.auth === true"> -->
+  <!-- <i><a routerLink="login" routerLinkActive="active">Log out</a></i>
+</div> -->
+
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let annonce of annonces, let i = index">
     <div class="row">
@@ -23,9 +31,9 @@
         </div>
     </div>
     <div *ngIf="annonce.details === true">
-        Email : {{ annonce.customer.customerEmail }}
-        Téléphone : {{ annonce.customer.customerPhone }}
-
+        <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email : {{ annonce.customer.customerEmail }}</p>
+        <p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> Téléphone : {{ annonce.customer.customerPhone }}</p>
+        
     </div>
   </li>
 </ul>

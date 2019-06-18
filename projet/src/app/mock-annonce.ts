@@ -27,6 +27,27 @@ export const AnnonceList: Annonce[] = [
         date: '15 juin 2019',
         price: 100,
         details : false
+    },
+    {
+        id: 3,
+        title: 'Piscine à vendre',
+        customer: customersListe[1],
+        image: 'assets/image/3.jpg',
+        content: 'Pour se mettre bien l\'été',
+        localisation: 'Marseille',
+        date: '10 juin 2019',
+        price: 890,
+        details : false
+    },
+    {
+        id: 4,
+        title: 'Barbecue à vendre',
+        customer: customersListe[0],
+        image: 'assets/image/4.jpg',
+        content: 'Pour un bon été entre amis',
+        localisation: 'Bordeaux',
+        date: '9 juin 2019',
+        price: 350,
+        details : false
     }
-
 ]
