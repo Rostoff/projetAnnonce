@@ -7,6 +7,7 @@ import { DetailAnnonceComponent } from './detail-annonce/detail-annonce.componen
 import { ListeAnnonceComponent } from './liste-annonce/liste-annonce.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

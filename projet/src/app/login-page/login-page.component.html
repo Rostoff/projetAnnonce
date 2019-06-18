@@ -4,13 +4,22 @@
         <p>Back</p>
     </a>
 
-  <form class="form-group">
-    <input type="email" class="form-control" id="email" name="email" placeholder="email" required>
-    <input type="password" class="form-control" id="password" name="password" placeholder="password" required>
+  <form class="form-group" name="form" #signupForm = "ngForm">
+    <input type="email" #email="ngModel" class="form-control" id="email" name="email" placeholder="email" [(ngModel)] = "customer.customerEmail" required>
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.email">Email must be a valid email address</div>
+      </div>
+    
+    <input type="password" #password="ngModel" class="form-control" id="password" name="password" placeholder="password" [(ngModel)] = "customer.customerPassword" required>
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
 
-    <button type="submit" class="btn btn-primary" routerLink="/listeAnnonce">Log In</button>
+    <button type="submit" class="btn btn-primary" routerLink="/listeAnnonce" >Log In</button>
   </form>
-
+  {{customer | json}}<br>
   <a href="">Password forgotten</a> <br>
   <a routerLink="/signIn" routerLinkActive="active"> Sign In</a>
 </div>

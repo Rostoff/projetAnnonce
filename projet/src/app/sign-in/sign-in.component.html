@@ -2,13 +2,36 @@
   <p>Back</p>
 </a>
 <h4>Sign In</h4>
-<form class="form-group">
-<input type="text" class="form-control" id="name" name="name" placeholder="name" required>
-<input type="email" class="form-control" id="email" name="email" placeholder="email" required>
-<input type="tel" pattern="[0-9]{10}" class="form-control" id="phone" name="phone" placeholder="phone" required>
-<input type="password" class="form-control" id="password" name="password" placeholder="password" required>
+<form class="form-group" #signinForm = "ngForm">
+<input type="text" #name="ngModel" class="form-control" id="name" name="name" placeholder="name" [(ngModel)] = "customer.customerName" required>
 
-<button type="submit" class="btn btn-primary" routerLink="/listeAnnonce">Sign in</button>
+<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+    <div *ngIf="name.errors.required">Name is required</div>
+</div>
+
+<input type="email" #email = "ngModel" class="form-control" id="email" name="email" placeholder="email" [(ngModel)] = "customer.customerEmail" required>
+
+<div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+    <div *ngIf="email.errors.required">Email is required</div>
+    <div *ngIf="email.errors.email">Email must be a valid email address</div>
+ </div>
+
+<input type="tel" #tel="ngModel" pattern="[0-9]{10}" class="form-control" id="phone" name="phone" placeholder="phone" [(ngModel)] = "customer.customerPhone"required>
+
+<div *ngIf="tel.invalid && (tel.dirty || tel.touched)" class="alert alert-danger">
+  <div *ngIf="tel.errors.required">Phone numbers is required</div>
+  <div *ngIf="tel.errors">Should be 10 numbers</div>
+</div>
+
+<input type="password" #password= "ngModel" class="form-control" id="password" name="password" placeholder="password" minlength="5" [(ngModel)] = "customer.customerPassword" required>
+
+<div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+  <div *ngIf="password.errors.required">Password is required</div>
+  <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+</div>
+
+<button type="submit" class="btn btn-primary" routerLink="/listeAnnonce" [disabled]="!signinForm.form.valid">Sign in</button>
 </form>
 
+{{customer | json}}
 
