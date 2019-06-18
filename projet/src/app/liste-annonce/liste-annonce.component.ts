@@ -18,10 +18,9 @@ export class ListeAnnonceComponent implements OnInit {
   }
 
   onClick(i: number) {
-    if(this.annonces[i].details == true){
+    if (this.annonces[i].details === true) {
       this.annonces[i].details = false;
-    }
-    else {
+    } else {
       this.annonces[i].details = true;
     }
 
