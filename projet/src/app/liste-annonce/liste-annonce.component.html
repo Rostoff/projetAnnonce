@@ -1,14 +1,36 @@
 <p>Liste</p>
 
-<!-- <div *ngIf="annonce.customer.auth === false"> -->
+<button type="button" class="btn btn-light btn-lg">
   <i><a routerLink="/login" routerLinkActive="active">Log in</a></i>
-<!-- </div>
-<div *ngIf="annonce.customer.auth === true"> -->
-  <!-- <i><a routerLink="login" routerLinkActive="active">Log out</a></i>
-</div> -->
+</button>
 
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let annonce of annonces, let i = index">
+  
+    <div *ngIf="creationMode === false">
+        <li class="list-group-item">
+            <div align="right">
+            <button type="button" class="btn btn-primary btn-lg" (click)="creationMode = true">
+              <i class="glyphicon glyphicon-pencil"></i> CREATE NEW
+            </button>
+          </div>
+        </li>
+    </div>
+
+    <div *ngIf="creationMode === true">
+        <li class="list-group-item">
+            <div align="right">
+              <button align="right" type="button" class="btn btn-primary btn-lg" (click)="creationMode = false">
+                <i class="glyphicon glyphicon-minus"></i> CLOSE
+              </button>
+            </div>
+          <br>
+          <app-create-annonce></app-create-annonce>
+        </li>
+    </div>
+  
+  
+  
+    <li class="list-group-item" *ngFor="let annonce of annonces, let i = index">
     <div class="row">
         <div class="col-8">
           <h2>{{ annonce.title }}</h2>

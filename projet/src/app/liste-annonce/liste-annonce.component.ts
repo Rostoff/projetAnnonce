@@ -11,6 +11,7 @@ import { AnnonceList } from '../mock-annonce';
 export class ListeAnnonceComponent implements OnInit {
 
   annonces: Annonce[] = AnnonceList;
+  creationMode = false;
 
   constructor() { }
 

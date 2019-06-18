@@ -1,0 +1,48 @@
+<form class="form-group" name="form" #createForm = "ngForm">
+
+    <div> Title :</div>
+    <input type="text" #title="ngModel" class="form-control" id="title" name="title" [(ngModel)] = "annonce.title" required>
+      <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+          <div *ngIf="title.errors.required">Title is required</div>
+      </div>
+
+      <div> Redactor name :</div>
+      <select>
+          <option *ngFor='let customer of customers' [value]="customer.customerName">
+            {{customer.customerName}}
+          </option>
+      </select>
+
+      <div> Content :</div>
+      <input type="text" #content="ngModel" class="form-control" id="content" name="content" [(ngModel)] = "annonce.content" required>
+      <div *ngIf="content.invalid && (content.dirty || content.touched)" class="alert alert-danger">
+          <div *ngIf="content.errors.required">Content is required</div>
+      </div>
+
+      <div> Price (in €) :</div>
+      <input type="number" #price="ngModel" class="form-control" id="price" name="content" [(ngModel)] = "annonce.price" required>
+      <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert alert-danger">
+          <div *ngIf="price.errors.required">price is required</div>
+      </div>
+
+      <div> Localisation :</div>
+      <input type="text" #localisation="ngModel" class="form-control" id="localisation" name="localisation" [(ngModel)] = "annonce.localisation" required>
+      <div *ngIf="localisation.invalid && (localisation.dirty || localisation.touched)" class="alert alert-danger">
+          <div *ngIf="localisation.errors.required">Localisation is required</div>
+      </div>
+
+      <div> Image : (non requis)</div>
+      <input type="image" #image="ngModel" class="form-control" id="image" name="image" [(ngModel)] = "annonce.image" required>
+
+
+      <br>
+    <button type="submit" class="btn btn-primary" routerLink="/listeAnnonce" >Create !</button>
+  </form>
+
+  customer: customersListe[0],
+        image: 'assets/image/1.jpg',
+        content: 'C\'est génial',
+        localisation: 'Paris',
+        date: '17 juin 2019',
+        price: 1500,
+        details: false

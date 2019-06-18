@@ -8,6 +8,7 @@ import { ListeAnnonceComponent } from './liste-annonce/liste-annonce.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { FormsModule } from '@angular/forms';
+import { CreateAnnonceComponent } from './create-annonce/create-annonce.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     DetailAnnonceComponent,
     ListeAnnonceComponent,
     LoginPageComponent,
-    SignInComponent
+    SignInComponent,
+    CreateAnnonceComponent
   ],
   imports: [
     BrowserModule,
