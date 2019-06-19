@@ -1,5 +1,5 @@
 <p>Liste</p>
-
+{{ annonces }}
 <button type="button" class="btn btn-light btn-lg">
   <i><a routerLink="/login" routerLinkActive="active">Log in</a></i>
 </button>
@@ -15,7 +15,6 @@
           </div>
         </li>
     </div>
-
     <div *ngIf="creationMode === true">
         <li class="list-group-item">
             <div align="right">
