@@ -18,7 +18,7 @@ export class ListeAnnonceComponent implements OnInit {
   constructor(private annonceServiceService: AnnonceServiceService) { }
 
   ngOnInit() {
-    this.annonces = this.annonceServiceService.getAnnonces();
+    //this.annonces = this.annonceServiceService.getAnnonces();
   }
 
   onClick(i: number) {
