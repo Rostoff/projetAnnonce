@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Annonce } from '../annonce';
 import { AnnonceList } from '../mock-annonce';
+import { AnnonceServiceService } from '../annonce-service.service';
 
 
 @Component({
@@ -10,11 +11,12 @@ import { AnnonceList } from '../mock-annonce';
 })
 export class ListeAnnonceComponent implements OnInit {
 
-  annonces: Annonce[] = AnnonceList;
+  annonces: any[] = AnnonceList;
 
-  constructor() { }
+  constructor(private annonceServiceService: AnnonceServiceService) { }
 
   ngOnInit() {
+    this.annonces = this.annonceServiceService.getAnnonces();
   }
 
   onClick(i: number) {
