@@ -3,6 +3,6 @@ export class Customers {
     customerPassword: string;
     customerEmail: string;
     customerPhone: string;
-    dateCreation: string;
-    auth: boolean;
+    dateCreation?: string;
+    auth?: boolean;
 }

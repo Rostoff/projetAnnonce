@@ -50,7 +50,29 @@ app.get('/bdd', (req, res) => {
     })
 })
 
+app.get('/customers', (req, res) => {
+    if(!dbConn) {
+        res.statusCode = 500;
+        res.end('Erreur');
+        return    
+    }
 
-app.listen(3000, () => {
+    dbConn.db("bddAnnonce").collection("Customers")
+    .find({})
+    .toArray((error, results) =>{
+            if(error){
+                res.statusCode = 500;
+                res.end('Erreur');
+                return 
+            } 
+                res.json(results);
+                // res.forEach((i, obj) =>{
+                //     console.log(obj.title)
+                // })
+    })
+})
+
+
+app.listen(3000, () => { //3000 se retrouve dans le localhost:3000
     console.log('Connecté :)');
 })

@@ -14,7 +14,7 @@ export class ListeAnnonceComponent implements OnInit {
 
   annonces: Annonce[] = [];
   //annonces = Observable<Annonce[]>;
-  //creationMode = false;
+  creationMode = false;
   //annonces: any[] = AnnonceList;
 
   constructor(private annonceServiceService: AnnonceServiceService) { 
@@ -22,7 +22,7 @@ export class ListeAnnonceComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('test2');
+    
     // this.annonceServiceService.getAnnonces().subscribe({
     //     next(value) { console.log(value); },
     //     complete() { console.log('C\'est fini!'); }
@@ -36,8 +36,11 @@ export class ListeAnnonceComponent implements OnInit {
 
   recupAnnonce() {
      this.annonceServiceService.getAnnonces().subscribe((annonce: Annonce[]) => {
-        this.annonceServiceService.ajoutAnnonces(annonce[0].id, annonce[0].title);
+      for (let i in annonce) {
+        this.annonceServiceService.ajoutAnnonces(annonce[i].id, annonce[i].title, annonce[i].content, annonce[i].price, annonce[i].localisation, annonce[i].image, annonce[i].customer);
+        console.log(annonce[i].customer.customerName);
       }
+    }
      );
   }
 

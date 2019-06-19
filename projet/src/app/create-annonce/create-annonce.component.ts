@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Annonce } from '../annonce';
 import { Customers } from '../customers';
 import { customersListe } from '../mock-customers';
+import { CustomersServiceService } from '../customers-service.service';
 
 @Component({
   selector: 'app-create-annonce',
@@ -11,14 +12,25 @@ import { customersListe } from '../mock-customers';
 export class CreateAnnonceComponent implements OnInit {
 
   private annonce: Annonce;
-  private customer: Customers;
-  customers: Customers[] = customersListe;
+  customers: Customers[] = [];
 
-  constructor() { }
+  constructor(private customersServiceService : CustomersServiceService) {
+    this.customers = customersServiceService.customers;
+   }
 
   ngOnInit() {
     this.annonce = new Annonce();
-    this.customer = new Customers();
+    this.recupCustomers();
   }
 
+
+
+  recupCustomers() {
+     this.customersServiceService.getCustomers().subscribe((customer: Customers[]) => {
+      for (let i in customer) {
+        this.customersServiceService.ajoutCustomers(customer[i].customerName, customer[i].customerPassword, customer[i].customerEmail, customer[i].customerPhone);
+      }
+    }
+     );
+  }
 }
