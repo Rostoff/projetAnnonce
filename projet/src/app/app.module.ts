@@ -9,11 +9,8 @@ import { ListeAnnonceComponent } from './liste-annonce/liste-annonce.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { FormsModule } from '@angular/forms';
-<<<<<<< HEAD
 import { CreateAnnonceComponent } from './create-annonce/create-annonce.component';
-=======
 import { AnnonceServiceService } from './annonce-service.service';
->>>>>>> version_01
 
 @NgModule({
   declarations: [
