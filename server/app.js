@@ -75,33 +75,33 @@ app.get('/customers', (req, res) => {
     })
 })
 
-//recherche par id
-    // app.get('/bdd/:id', (req, res) => {
-    //     const id = req.params.id;
-    //     if(!dbConn) {
-    //         res.statusCode = 500;
-    //         res.end('Erreur');
-    //         return    
-    //     }
+// recherche par id des annonces
+    app.get('/bdd/:id', (req, res) => {
+        const id = req.params.id;
+        if(!dbConn) {
+            res.statusCode = 500;
+            res.end('Erreur');
+            return    
+        }
 
-    //     dbConn.db("bddAnnonce").collection("AnnonceBdd")
-    //     .findOne({_id:ObjectID(id)}, (error, results) =>{
-    //         if(error){
-    //             res.statusCode = 500;
-    //             res.end('Erreur');
-    //             return 
-    //         } 
-    //             //res.send(req.params.id);
+        dbConn.db("bddAnnonce").collection("AnnonceBdd")
+        .findOne({_id:ObjectID(id)}, (error, results) =>{
+            if(error){
+                res.statusCode = 500;
+                res.end('Erreur');
+                return 
+            } 
+                //res.send(req.params.id);
                 
-    //             res.json(results);
-    //             // res.forEach((i, obj) =>{
-    //             //     console.log(obj.title)
-    //             // })
-    // })
-// })
+                res.json(results);
+                // res.forEach((i, obj) =>{
+                //     console.log(obj.title)
+                // })
+    })
+})
 
-//recherche par base utilisateurs
-app.get('/bdd/:customer', (req, res) => {
+//recherche par id base utilisateurs
+app.get('/customer/:customer', (req, res) => {
     const customer = req.params.customer;
     
     if(!dbConn) {
