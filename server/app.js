@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require("cors");
+
 app.use(express.json());
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -9,6 +10,7 @@ app.all('*', function(req, res, next) {
  });
 const MongoClient = require("mongodb").MongoClient;
 const mongoURL = "mongodb://localhost:27017/bddAnnonce";
+const ObjectID = require('mongodb').ObjectID;
 
 let dbConn;
 
@@ -28,6 +30,7 @@ app.get('/', (req, res) => {
 
 
 
+//app.get('/bdd/:id', (req, res) => {
 app.get('/bdd', (req, res) => {
     if(!dbConn) {
         res.statusCode = 500;
@@ -36,6 +39,7 @@ app.get('/bdd', (req, res) => {
     }
 
     dbConn.db("bddAnnonce").collection("AnnonceBdd")
+    //.find({_id:req.params.id})
     .find({})
     .toArray((error, results) =>{
             if(error){
@@ -43,6 +47,7 @@ app.get('/bdd', (req, res) => {
                 res.end('Erreur');
                 return 
             } 
+                //res.send(req.params.id);
                 res.json(results);
                 // res.forEach((i, obj) =>{
                 //     console.log(obj.title)
@@ -58,7 +63,7 @@ app.get('/customers', (req, res) => {
     }
 
     dbConn.db("bddAnnonce").collection("Customers")
-    .find({})
+    .find()
     .toArray((error, results) =>{
             if(error){
                 res.statusCode = 500;
@@ -66,11 +71,82 @@ app.get('/customers', (req, res) => {
                 return 
             } 
                 res.json(results);
-                // res.forEach((i, obj) =>{
-                //     console.log(obj.title)
-                // })
+
     })
 })
+
+//recherche par id
+    // app.get('/bdd/:id', (req, res) => {
+    //     const id = req.params.id;
+    //     if(!dbConn) {
+    //         res.statusCode = 500;
+    //         res.end('Erreur');
+    //         return    
+    //     }
+
+    //     dbConn.db("bddAnnonce").collection("AnnonceBdd")
+    //     .findOne({_id:ObjectID(id)}, (error, results) =>{
+    //         if(error){
+    //             res.statusCode = 500;
+    //             res.end('Erreur');
+    //             return 
+    //         } 
+    //             //res.send(req.params.id);
+                
+    //             res.json(results);
+    //             // res.forEach((i, obj) =>{
+    //             //     console.log(obj.title)
+    //             // })
+    // })
+// })
+
+//recherche par base utilisateurs
+app.get('/bdd/:customer', (req, res) => {
+    const customer = req.params.customer;
+    
+    if(!dbConn) {
+        res.statusCode = 500;
+        res.end('Erreur');
+        return    
+    }
+    
+    dbConn.db("bddAnnonce").collection("Customers")
+    .findOne({_id:ObjectID(customer)}, (error, results) =>{
+        if(error){
+            res.statusCode = 500;
+            res.end('Erreur');
+            return 
+        } 
+            //res.send(req.params.id);
+            console.log(customer);
+            res.json(results);
+            // res.forEach((i, obj) =>{
+            //     console.log(obj.title)
+            })
+    
+})
+
+
+//Ajout de nouvelles annnoces
+    app.post('/bdd', (req, res) => {
+        if(!dbConn) {
+            connect(() => writeCal(calcul));
+            return;
+        }
+
+        // Exécution de la requête
+    dbConn.db('bddAnnonce').collection("AnnonceBdd")
+    .insertOne(req.body, (err) => {
+        if (err) {
+            console.err('Erreur lors de l\'insertion');
+        }
+        res.json({success: true});
+    })
+    })
+
+
+
+
 
 
 app.listen(3000, () => { //3000 se retrouve dans le localhost:3000
