@@ -27,10 +27,12 @@
         </li>
     </div>
   
+    <input [(ngModel)]="searchTitle" placeholder="Rechercher par titre">
+    <input [(ngModel)]="searchCustomer" placeholder="Rechercher par vendeur">
   
-  
-    <li class="list-group-item" *ngFor="let annonce of annonces, let i = index">
-    <div class="row">
+     
+    <li class="list-group-item" *ngFor="let annonce of annonces | filterByTitle : searchTitle, let annonce of annonces | filterByTitle : searchCustomer, let i = index">
+      <div class="row">
         <div class="col-8">
           <h2>{{ annonce.title }}</h2>
           <p>Proposé par : <i>{{ annonce.customer.customerName }}</i> à {{annonce.localisation}}</p>

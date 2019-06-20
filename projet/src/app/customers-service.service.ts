@@ -28,5 +28,10 @@ export class CustomersServiceService {
     return this.http.get(this.apiUrl);
   }
 
+  getCustomerById(id: number) {
+    
+  }
+
+
 
 }

@@ -11,6 +11,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { FormsModule } from '@angular/forms';
 import { CreateAnnonceComponent } from './create-annonce/create-annonce.component';
 import { AnnonceServiceService } from './annonce-service.service';
+import { FilterPipe } from './filter.pipe';
+import { FilterCustomerPipe } from './filter-customer.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { AnnonceServiceService } from './annonce-service.service';
     ListeAnnonceComponent,
     LoginPageComponent,
     SignInComponent,
-    CreateAnnonceComponent
+    CreateAnnonceComponent,
+    FilterPipe,
+    FilterCustomerPipe
   ],
   imports: [
     BrowserModule,

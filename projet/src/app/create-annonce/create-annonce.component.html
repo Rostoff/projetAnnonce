@@ -32,8 +32,9 @@
       </div>
 
       <div> Image : (non requis)</div>
-      <input type="image" #image="ngModel" class="form-control" id="image" name="image" [(ngModel)] = "annonce.image" required>
-
+      <div class="form-group">
+        <input type="file"  #image="ngModel" class="form-control-file" name="image" [(ngModel)] = "annonce.image">
+      </div>
 
       <br>
     <button type="submit" class="btn btn-primary" routerLink="/listeAnnonce" >Create !</button>
