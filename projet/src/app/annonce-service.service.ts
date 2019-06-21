@@ -36,6 +36,10 @@ export class AnnonceServiceService {
     return this.http.get('http://localhost:3000/bdd');
   }
 
+  addCustomerToAnnonce(index: number, customer: Customers){
+    this.annonces[index].customer = customer;
+  }
+
 }
 
 

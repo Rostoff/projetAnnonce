@@ -101,7 +101,7 @@ app.get('/customers', (req, res) => {
 })
 
 //recherche par id base utilisateurs
-app.get('/customer/:customer', (req, res) => {
+app.get('/customers/:customer', (req, res) => {
     const customer = req.params.customer;
     
     if(!dbConn) {
@@ -117,12 +117,12 @@ app.get('/customer/:customer', (req, res) => {
             res.end('Erreur');
             return 
         } 
-            //res.send(req.params.id);
-            console.log(customer);
-            res.json(results);
-            // res.forEach((i, obj) =>{
-            //     console.log(obj.title)
-            })
+        //res.send(req.params.id);
+        
+        res.json(results);
+        // res.forEach((i, obj) =>{
+        //     console.log(obj.title)
+        })
     
 })
 
@@ -142,7 +142,7 @@ app.get('/customer/:customer', (req, res) => {
         }
         res.json({success: true});
     })
-    })
+})
 
 
 

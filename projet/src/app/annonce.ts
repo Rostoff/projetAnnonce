@@ -4,7 +4,7 @@ import { Customers } from './customers';
 export class Annonce {
     id: number;
     title: string;
-    //customerName: string; 
+    customerId?: string; 
     customer?: Customers;
     image?: string;
     content?: string;
